@@ -74,24 +74,24 @@ namespace MusicallityBot
                         break;
                     case "-gachi":
                         
-                        photos = Directory.GetFiles("..//..//..//gachi");
+                        photos = Directory.GetFiles("..//..//..//pictures/gachi");
                         await msg.Channel.SendFileAsync(photos[rnd.Next(0, photos.Length)]);
                         break;
                     case "-kenny9":
                         
-                        photos = Directory.GetFiles("..//..//..//kenny9");
+                        photos = Directory.GetFiles("..//..//..//pictures/kenny9");
                         await msg.Channel.SendFileAsync(photos[rnd.Next(0, photos.Length)]);
                         break;
                     case "-gg":
-                        photos = Directory.GetFiles("..//..//..//gg");
+                        photos = Directory.GetFiles("..//..//..//pictures/gg");
                         await msg.Channel.SendFileAsync(photos[rnd.Next(0, photos.Length)]);
                         break;
                     case "-dora":
-                        photos = Directory.GetFiles("..//..//..//dora");
+                        photos = Directory.GetFiles("..//..//..//pictures/dora");
                         await msg.Channel.SendFileAsync(photos[rnd.Next(0, photos.Length)]);
                         break;
                     case "-hui" or "-chlen" or "-dick":
-                        photos = Directory.GetFiles("..//..//..//dick");
+                        photos = Directory.GetFiles("..//..//..//pictures/dick");
                         await msg.Channel.SendFileAsync(photos[rnd.Next(0, photos.Length)]);
                         break;
                     case "-roll":
