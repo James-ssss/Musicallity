@@ -1,5 +1,6 @@
 ﻿using Discord.Commands;
 
+
 namespace Musicallity.Commands
 {
     [Name("Picture")]

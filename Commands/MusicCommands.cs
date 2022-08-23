@@ -1,3 +1,4 @@
+
 ﻿using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
@@ -26,6 +27,7 @@ namespace Musicallity.Commands
         [Summary("play/pause music")]
         public async Task PauseCommand()
             => await Context.Channel.SendMessageAsync(await Managers.AudioManager.TogglePauseAsync(Context.Guild));
+
 
         [Command("skip")]
         [Summary("переход к следующему треку")]

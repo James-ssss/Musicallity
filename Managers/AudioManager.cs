@@ -5,7 +5,8 @@ using Victoria;
 using Victoria.Enums;
 using Victoria.EventArgs;
 using Victoria.Responses.Search;
-using Victoria.Responses.Route;
+
+
 
 namespace Musicallity.Managers
 {
@@ -52,7 +53,6 @@ namespace Musicallity.Managers
                 await player.PlayAsync(track);
                 Console.WriteLine($"Now playing /{track.Author}/ - [{track.Title}]");
                 return $"Сейчас играет: [{track.Title}]";
-               
             }
 
             catch (Exception ex)
@@ -96,8 +96,8 @@ namespace Musicallity.Managers
                         var currentTrack = player.Track;
                         await player.SkipAsync();
                         Console.WriteLine($"[{DateTime.Now}]\t(AUDIO)\tBot skipped: {currentTrack.Title}");
-                        _lavaNode.  $"**Skipped** {currentTrack.Title}";
-                        //return $"Сейчас играет: [{player.Track.Title}]";
+                        //_lavaNode.GetPlayer(guild).  $"**Skipped** {currentTrack.Title}";
+                        return $"Сейчас играет: [{player.Track.Title}]";
 
                     }
                     catch (Exception ex)
