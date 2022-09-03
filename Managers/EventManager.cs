@@ -33,6 +33,7 @@ namespace Musicallity.Managers
             };
             _client.Ready += OnReady;
             _client.MessageReceived += OnMessageReceived;
+            _lavaNode.OnTrackEnded += Managers.AudioManager.TrackEnded;
 
             return Task.CompletedTask;
         }
@@ -71,7 +72,7 @@ namespace Musicallity.Managers
 
             Console.WriteLine($"[{DateTime.Now}]\t(READY)\tBOT is ready");
             await _client.SetStatusAsync(UserStatus.Online);
-            await _client.SetGameAsync($"Prefix: {ConfigManager.Config.Prefix}");
+            await _client.SetGameAsync($"-help");
         }
     }
 }
