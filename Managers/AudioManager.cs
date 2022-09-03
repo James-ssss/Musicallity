@@ -40,7 +40,7 @@ namespace Musicallity.Managers
                 var player = _lavaNode.GetPlayer(guild);
                 LavaTrack track;
                 var search = Uri.IsWellFormedUriString(query, UriKind.Absolute) 
-                    ? await _lavaNode.SearchAsync(Victoria.Responses.Search.SearchType.SoundCloud,query) 
+                    ? await _lavaNode.SearchAsync(SearchType.SoundCloud,query) 
                     : await _lavaNode.SearchYouTubeAsync(query);
                 if (search.Status == SearchStatus.NoMatches) return "Братанчик, спроси че попроще";
                 track = search.Tracks.FirstOrDefault();
@@ -133,9 +133,17 @@ namespace Musicallity.Managers
                 return ex.Message;
             }
         }
+        /// <summary>
+        ///     Whether the next track should be played or not.
+        /// </summary>
+        /// <param name="trackEndReason">Track end reason given by Lavalink.</param>
+        public static bool ShouldPlayNext(this TrackEndReason trackEndReason)
+        {
+            return trackEndReason == TrackEndReason.Finished || trackEndReason == TrackEndReason.LoadFailed;
+        }
         public static async Task TrackEnded(TrackEndedEventArgs args)
         {
-            //if (!args.Reason.) return;
+            if (!args.Reason.ShouldPlayNext()) return;
 
             if (!args.Player.Queue.TryDequeue(out var queueable )) return;
             
